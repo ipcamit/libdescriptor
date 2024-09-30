@@ -1,0 +1,2 @@
+include libdescriptor/neighbor/*.hpp
+include libdescriptor/neighbor/*.h

@@ -1,0 +1,56 @@
+{% set name = "libdescriptor" %}
+
+# Needed for the linter even though it's specified in conda_build_config.yaml
+{% set llvm_major_version = llvm_major_version %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  - url: https://github.com/EnzymeAD/Enzyme/archive/v{{ enzyme_version }}.tar.gz
+    folder: Enzyme-{{ enzyme_version }}
+  
+  - git_url: https://github.com/openkim/libdescriptor.git
+    git_rev: libdescriptor-lite
+    folder: libdescriptor
+
+
+build:
+  number: 0
+  script: ./build.sh
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - python
+    - pybind11
+    - eigen
+
+  host:
+    - zlib
+    - llvmdev {{ llvm_major_version }}
+    - clangdev {{ llvm_major_version }}
+    
+  run_constrained:
+    - llvmdev {{ llvm_major_version + ".*" }}
+
+  run:
+    - python
+
+about:
+  home: libdescriptor.readthedocs.io
+  license: MIT
+  summary: 'Auto-differentiated descriptors using Enzyme'
+  description: |
+    libdescriptor is a library for computing auto-differentiated descriptors using Enzyme.
+    It is part of the OpenKIM project.
+  doc_url: https://libdescriptor.readthedocs.io
+  dev_url: https://github.com/openkim/libdescriptor
+
+extra:
+  recipe-maintainers:
+    - Amit Gupta
+
