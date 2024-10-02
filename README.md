@@ -4,7 +4,7 @@ Libdescriptor-lite [![Documentation Status](https://readthedocs.org/projects/lib
 </div>.
 
 ---
-This is a "compler-only" version of libdescriptor. The original libdescriptor library uses link time optimization for gradients. Problem with link type optimization is that
+This is a "compiler-only" version of libdescriptor. The original libdescriptor library uses link time optimization for gradients. Problem with link type optimization is that
 several systems, especially Mac, does not support custom ld linkers. This is a single file version and hence Enzyme can genertae gradients at compile time, instead of link time.
 
 Regression:

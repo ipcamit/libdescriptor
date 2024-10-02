@@ -6,8 +6,10 @@ from setuptools import find_packages
 import os
 
 # Define the C++ extension
-libdesc_include = os.getenv("PREFIX", "/usr/local") + "/include"
-libdesc_lib = os.getenv("PREFIX", "/usr/local") + "/lib"
+libdesc_include = os.getenv("BUILD_PREFIX", "/usr/local") + "/include"
+libdesc_lib = os.getenv("BUILD_PREFIX", "/usr/local") + "/lib"
+
+eigen_include = os.getenv("BUILD_PREFIX", "/usr/local") + "/include/eigen3"
 
 ext_modules = [
     Extension(
@@ -18,6 +20,7 @@ ext_modules = [
             pybind11.get_include(),
             pybind11.get_include(user=True),
             libdesc_include,
+            eigen_include,
         ],
         library_dirs=[
             libdesc_lib,
