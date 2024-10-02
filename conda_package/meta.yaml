@@ -1,6 +1,4 @@
 {% set name = "libdescriptor" %}
-
-# Needed for the linter even though it's specified in conda_build_config.yaml
 {% set llvm_major_version = llvm_major_version %}
 
 package:
@@ -18,12 +16,15 @@ source:
 
 build:
   number: 0
-  script: ./build.sh
+  script_env:
+    - llvm_major_version
+    - enzyme_version
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - cmake
+    - make
+    - python
     - ninja
     - python
     - pybind11
@@ -33,7 +34,9 @@ requirements:
     - zlib
     - llvmdev {{ llvm_major_version }}
     - clangdev {{ llvm_major_version }}
-    
+    - gxx_linux-64 # [linux]
+    - clang_osx-64 # [osx]
+
   run_constrained:
     - llvmdev {{ llvm_major_version + ".*" }}
 
@@ -52,5 +55,5 @@ about:
 
 extra:
   recipe-maintainers:
-    - Amit Gupta
+    - ipcamit
 
