@@ -1,5 +1,7 @@
 # STEP 1: Build Enzyme
 set -e
+set -x
+
 echo "llvm_major_version: $llvm_major_version"
 export LLVM_DIR=$PREFIX/lib/cmake/llvm
 
@@ -50,4 +52,4 @@ cp Descriptors.hpp $PREFIX/include
 
 # STEP 3: Build python package
 cd python_package
-python setup.py install
+$PYTHON setup.py install --single-version-externally-managed --record=record.txt

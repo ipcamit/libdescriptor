@@ -11,7 +11,21 @@ Regression:
 - Removed Xi descriptor as it was having problems wih compiler time gradients.
 
 Installation:
-Use conda to install this library. Will add details soon.
+Use conda to install this library.
+
+```shell
+conda install libdescriptor -c conda-forge -c ipcamit
+```
+
+`-c conda-forge` is may not be necessary, I am not sure, mainly adding it so that all dependencies are resolved correctly.
+If it gives issue please try
+
+```shell
+conda install libdescriptor -c ipcamit
+```
+
+> TODO: Move to conda-forge channel.
+
 
 ---
 

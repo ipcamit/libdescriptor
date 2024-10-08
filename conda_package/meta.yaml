@@ -1,5 +1,4 @@
 {% set name = "libdescriptor" %}
-{% set llvm_major_version = llvm_major_version %}
 
 package:
   name: {{ name|lower }}
@@ -31,11 +30,13 @@ requirements:
     - eigen
 
   host:
+    - pybind11
     - zlib
     - llvmdev {{ llvm_major_version }}
     - clangdev {{ llvm_major_version }}
     - gxx_linux-64 # [linux]
     - clang_osx-64 # [osx]
+    - python
 
   run_constrained:
     - llvmdev {{ llvm_major_version + ".*" }}

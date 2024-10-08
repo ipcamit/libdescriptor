@@ -5,15 +5,3 @@ enzyme_version:
   - 0.0.150
 
 version: "0.2.5"
-
-# c_compiler:
-#   - clang
-
-# cxx_compiler:
-#   - clangxx
-
-# c_compiler_version:
-#   - 18
-
-# cxx_compiler_version:
-#   - 18
