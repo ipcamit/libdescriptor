@@ -5,10 +5,10 @@ Libdescriptor-lite [![Documentation Status](https://readthedocs.org/projects/lib
 
 ---
 This is a "compiler-only" version of libdescriptor. The original libdescriptor library uses link time optimization for gradients. Problem with link type optimization is that
-several systems, especially Mac, does not support custom ld linkers. This is a single file version and hence Enzyme can genertae gradients at compile time, instead of link time.
+several systems, especially Mac, does not support custom ld linkers. This is a single file version and hence Enzyme can generate gradients at compile time, instead of link time.
 
 Regression:
-- Removed Xi descriptor as it was having problems wih compiler time gradients.
+- Removed Xi descriptor as it was having problems with the compile-time gradients.
 
 Installation:
 Use conda to install this library.
@@ -18,7 +18,7 @@ conda install libdescriptor -c conda-forge -c ipcamit
 ```
 
 `-c conda-forge` is may not be necessary, I am not sure, mainly adding it so that all dependencies are resolved correctly.
-If it gives issue please try
+If it give some issues please try
 
 ```shell
 conda install libdescriptor -c ipcamit
